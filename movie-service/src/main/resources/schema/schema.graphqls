@@ -1,0 +1,26 @@
+type Query {
+    movies(title: String): [Movie]
+}
+
+type Movie {
+    id: ID!
+    version: Int
+    title: String
+    status: MovieStatus
+    talents: [Talent]
+    createdAt: String
+    updatedAt: String
+}
+
+enum MovieStatus {
+    RECORDING
+    RELEASING
+    RELEASED
+}
+
+type Talent {
+    id: ID!
+    name: String
+    role: String
+    document: String
+}

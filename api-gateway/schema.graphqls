@@ -1,0 +1,18 @@
+
+type Movie {
+    movieId: ID!
+    title: String
+    production: Production
+    actors: [Talent]
+}
+
+type Production {
+    productionId: ID!
+}
+
+type Talent {
+    talentId: ID!
+    name: String
+    role: String
+    document: String
+}

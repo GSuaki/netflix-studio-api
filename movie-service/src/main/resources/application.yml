@@ -1,0 +1,22 @@
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+
+server:
+  port: 8081
+
+services:
+  production: http://localhost:8082
+  talent: http://localhost:8083
+
+spring:
+  r2dbc:
+    url: r2dbc:mysql://root:123456@localhost:3307/movies
+    pool:
+      enabled: true
+      initial-size: 10
+      max-size: 20
+
+  redis:
+    host: localhost
+    port: 6379

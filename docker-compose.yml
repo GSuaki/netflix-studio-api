@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  ms_mysql:
+    container_name: ms-mysql
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_PASSWORD=123456
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3307:3306
+    networks:
+      - ms_network
+
+  ms_redis:
+    container_name: ms-redis
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    environment:
+      - REDIS_PASSWORD=123456
+      - REDIS_AOF_ENABLED=yes
+    command: redis-server --save 10 1 --loglevel warning
+    volumes:
+      - ./.redis-cache:/bitnami/redis/data
+
+networks:
+  ms_network:

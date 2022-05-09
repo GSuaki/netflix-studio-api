@@ -1,0 +1,14 @@
+type Query {
+    productionByMovieId(movieId: String): Production
+}
+
+type Movie @key(fields: "id") @extends {
+    id: ID @external
+    production: Production
+}
+
+type Production {
+    id: ID!
+    movieId: ID!
+    name: String
+}

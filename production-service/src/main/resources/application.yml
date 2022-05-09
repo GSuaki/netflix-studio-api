@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+
+server:
+  port: 8082
+
+spring:
+  r2dbc:
+    url: r2dbc:mysql://root:123456@localhost:3307/productions
+    pool:
+      enabled: true
+      initial-size: 10
+      max-size: 20

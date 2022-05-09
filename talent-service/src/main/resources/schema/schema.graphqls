@@ -1,0 +1,10 @@
+type Query {
+    talents(title: String): [Talent]
+}
+
+type Talent {
+    id: ID!
+    name: String
+    role: String
+    document: String
+}
